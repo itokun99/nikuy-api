@@ -1,0 +1,28 @@
+.class-pagination {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+
+  .page-item {
+    .page-link {
+      background-color: $card-class-bg;
+      border-color: $card-class-bg;
+      color: $white;
+      font-weight: bold;
+    }
+
+    &.disabled {
+      .page-link {
+        background-color: $card-class-bg;
+        border-color: $card-class-bg;
+      }
+    }
+
+    &.active {
+      .page-link {
+        background-color: $secondary;
+        border-color: $secondary;
+      }
+    }
+  }
+}

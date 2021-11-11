@@ -1,0 +1,32 @@
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -99999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0,0,0,0.8);
+  transition: 0.2s;
+  opacity: 0;
+
+  &--show {
+    z-index: 99999999;
+    opacity: 1;
+  }
+
+  &__content {
+    display: block;
+    max-width: 100px;
+    text-align: center;
+    color: #fff;
+    font-weight: bolder;
+  }
+
+  &__image {
+    width: 100%;
+    max-width: 70px;
+  }
+}

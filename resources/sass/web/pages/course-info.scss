@@ -1,0 +1,518 @@
+body{
+  background: #14110E;
+}
+
+.container-course-info{
+  padding: 0;
+  background-color: #14110E;
+}
+/* SIDEBAR */ 
+.sidebar{
+  background-color: #14110E;
+  display: inline-block;
+  width: 34%;
+  height: 100%;
+
+  padding-top: 25px
+}
+
+.class-title{
+  background-color: #2f2f2f;
+  margin-left: 27px;
+  margin-right: 27px;
+  margin-bottom: 40px;
+  padding: 28px 30px;
+  font-weight: bold;
+  border-radius: 5px;
+}
+.class-title h2 {
+  font-size: 24px;
+  line-height: 30px;
+}
+
+.sidebar-progress-wrapper {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.sidebar-progress-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.sidebar-progress-bar {
+  position: relative;
+  height: 18px;
+  border-radius: 30px;
+  background-color: #14110E;
+  width: 100%;
+  overflow: hidden;
+}
+
+.sidebar-progress-bar-value {
+  height: 100%;
+  width: 3%;
+  border-radius: 30px;
+  background: linear-gradient(180deg, #00C088 0%, #007C84 100%),
+  linear-gradient(0deg, #00A368, #00A368);
+}
+
+.content-title h2{
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 30px;
+
+  padding-bottom: 24px;
+  padding-left: 55px;
+
+
+  border-bottom: 2px solid white;
+}
+
+
+
+/*DROP DOWN SIDEBAR*/ 
+.btn-dropdown{
+  background-color: inherit;
+  color: inherit;
+  text-align: left;
+  border-bottom: 2px solid white;
+
+  /* padding-left: 100px; */
+  padding-left: 55px;
+  padding-bottom: 24px;
+  width: 100%;
+
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 50px;
+}
+
+.btn-dropdown:hover{
+  color: inherit;
+}
+
+.btn-dropdown img{
+  /* margin-left: 140px; */
+  float: right;
+  margin-top: 15px;
+  margin-right: 10px;
+}
+
+/*DROP MENU SIDEBAR*/ 
+.drop-menu{
+  position: relative;
+  display: none;
+  border-bottom: 2px solid white;
+
+  padding-bottom: 24px;
+  width: 100%;
+}
+
+.drop-item{
+  display: block;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  padding-left:100px;
+  color: white;
+}
+
+.drop-item:hover{
+  color: white;
+  text-decoration: none;
+}
+
+.drop-item img{
+  vertical-align: top;
+  margin-right: 27px;
+  
+}
+
+.drop-text{
+  display: inline-block;
+}
+
+.drop-item-unduh{
+  line-height: 50px;
+  font-weight: bold;
+  font-size: 14px;
+}
+.drop-item-title{
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.drop-item-desc{
+  font-weight: normal;
+  font-size: 18px;
+}
+
+.rating{
+  position: relative;
+}
+.rating h2{
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 30px;
+
+  padding-bottom: 24px;
+  padding-left: 55px;
+
+  margin-top:25px;
+  margin-bottom: 25px;
+
+  border-bottom: 2px solid white;
+  opacity: 75%;
+}
+
+/*CONTENT*/
+.content{
+  background-color: #2f2f2f;
+  display: inline-block;
+  vertical-align: top;
+  width: 65.5%;
+  height: 802px;
+  overflow: auto;
+}
+
+/*BANNER*/ 
+
+.course-banner img{
+  width: 715px;
+  height: 402px;
+
+  margin-left: 130px;
+  margin-right: 130px;
+  margin-top: 200px;
+  margin-bottom: 200px;
+}
+
+/*UDUH*/ 
+.unduh-content{
+  display: none;
+}
+.isi-unduh{
+  margin-top: 35%;
+  margin-bottom: auto;
+  text-align: center;
+}
+.isi-unduh h1{
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 50px;
+  opacity: 75%;
+}
+
+.isi-unduh .btn{
+  width: 230px;
+  height: 40px;
+  background-color: #FFFFFF;
+  color: black;
+
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 20px;
+}
+
+/*COURSE CONTENT*/
+.card{
+  background-color: #FFFFFF;
+  height: unset;
+  width: unset;
+}
+
+.card-body{
+  overflow: auto;
+  padding: 15px;
+}
+.course-content{
+  color: #14110E;
+  padding: 30px 45px;
+  display: inline-block;
+}
+
+.card{
+  margin-bottom: 40px;
+}
+
+.card-header{
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 50px;
+}
+.btn-dropdown-content{
+  width: 100%;
+  text-align: left;
+  padding: 0;
+  padding-bottom: 10px;
+
+  border-bottom: 2px solid #B8B8B8;
+
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 50px;
+
+  color: black;
+}
+
+.btn-dropdown-content:hover{
+  
+  color: black;
+  text-decoration: none;
+}
+
+.btn-dropdown-content img{
+  margin-left: 80%;
+}
+
+.drop-menu-content{
+  position: relative;
+  display: none;
+
+}
+
+.drop-menu-content{
+  text-align: center;
+}
+
+.drop-text-content{
+  text-align: justify;
+}
+
+.drop-menu-content{
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.drop-text-content{
+  margin-bottom:40px;
+}
+
+/*ATTACHMENT*/
+.btn-attachment{
+  width: 100%;
+  text-align: left;
+  padding: 0;
+  padding-bottom: 10px;
+
+  border-bottom: 2px solid #B8B8B8;
+
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 50px;
+
+  color: black;
+}
+
+.btn-attachment:hover{
+  color: black;
+  text-decoration: none;
+}
+
+.btn-attachment img{
+  margin-left: 650px;
+}
+
+.footer-content-btn{
+  text-align: right;
+}
+
+.btn-next-content, .btn-prev-content{
+  background-color: #E2E2E2;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+.btn-rating{
+  background-color: inherit;
+  color: inherit;
+  text-align: left;
+  border-bottom: 2px solid white;
+
+  padding-left: 100px;
+  padding-bottom: 24px;
+  width: 100%;
+
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 50px;
+}
+
+.tombol-rating:hover{
+  color: inherit;
+  text-decoration: none;
+}
+
+.tombol-rating{
+  background-color: inherit;
+  color: inherit;
+  text-align: left;
+  border-bottom: 2px solid white;
+
+  /* padding-left: 100px; */
+  padding-left: 55px;
+  padding-bottom: 24px;
+  width: 100%;
+
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 50px;
+}
+
+.tombol-rating:hover{
+  color: inherit;
+  text-decoration: none;
+}
+
+
+.modal-rating{
+  color: black;
+  text-align: center;
+  width: 60%;
+
+  background-color: #E2E2E2;
+  padding: 50px 55px;
+}
+
+.modal-rating h1{
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 50px;
+}
+
+.star{
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.modal-rating h3{
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 50px;
+  margin-bottom: 35px;
+  
+}
+
+form{
+  text-align: left;
+}
+.modal-rating label{
+  display: block;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 25px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.modal-rating textarea{
+  width: 400px;
+  height: 267px;
+  margin-bottom: 20px;
+}
+
+.btn-form-rating{
+  display: block;
+  text-align: center;
+  background: linear-gradient(180deg, #FECC5D 0%, #FE9E32 100%);
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 40px;
+  width:100%;
+  border: none;
+}
+
+.btn-form-rating:hover{
+  color: white;
+  text-decoration: none;
+  
+}
+
+.close-modal-rating{
+  position: absolute;
+  top: 100px;
+  right:250px;
+}
+
+/*INI YANG KALO DIA SUDAH DIKIRIM*/
+.modal-rated-content{
+  display: none;
+}
+.btn-form-rated{
+  display: block;
+  text-align: center;
+  background: linear-gradient(180deg, #FECC5D 0%, #FE9E32 100%);
+  border-radius: 5px;
+
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 50px;
+
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.nav-responsive {
+  display: none;
+}
+
+/*Responsive Web*/
+@media only screen and (max-width: 1400px){
+ 
+  .btn-dropdown-content img{
+      margin-left: 75%;
+  }
+
+  .btn-attachment img{
+      margin-left: 75%;
+  }
+}
+
+
+@media only screen and (max-width: 1300px){
+  .btn-dropdown-content img{
+      margin-left: 70%;
+  }
+  .btn-attachment img{
+      margin-left: 70%;
+  }
+}
+
+@media only screen and (max-width: 1200px){
+  .btn-dropdown-content img{
+      margin-left: 65%;
+  }
+
+  .btn-attachment img{
+      margin-left: 65%;
+  }
+}
+
+
+@media (max-width: 900px) {
+  .sidebar {
+      width: 100%;
+      height: auto;
+  }
+
+  .sidebar .content-title, .sidebar .pilar-dropdown, .sidebar .rating{
+      display: none;
+  }
+  .course-content {
+      width: 100%;
+      height: auto;
+      padding: 24px;
+  }
+
+  .nav-responsive {
+      display: block;
+  }
+
+  .nav-responsive .content-title {
+      padding-top: 60px;
+  }
+}

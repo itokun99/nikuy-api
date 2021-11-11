@@ -1,0 +1,32 @@
+.container-footer {
+  text-align: center;
+}
+
+.navfooter li {
+  display: inline;
+  margin-right: 1rem;
+  margin-left: 1rem;
+  line-height: 50px;
+}
+
+.navfooter ul {
+  padding: 0px;
+}
+
+@media (max-width: 767px) {
+  .container-footer .subheader-heavy{
+      font-size: 8px;
+  }
+
+  .navfooter li {
+      margin-left: 12.5px;
+      margin-right: 12.5px;
+      line-height: unset;
+  }
+
+  .container-res{
+      padding: 20px 35px;
+      background: #E5E5E5;
+      background-color: #14110E;
+  }
+}

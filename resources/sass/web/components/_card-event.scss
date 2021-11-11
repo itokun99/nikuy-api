@@ -1,0 +1,26 @@
+.card-event {
+  background-color: $section-bg;
+  &__inner {
+    background-color: $card-event-bg;
+  }
+
+  &__image {
+    position: relative;
+    height: 0;
+    padding-bottom: 58%;
+  }
+
+  &__text {
+    font-size: 13px;
+  }
+
+  &__price {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 0 8px;
+    margin-bottom: 14px;
+    background: $gradient-price-tag;
+    border-radius: 5px 0px 0px 0px;
+  }
+}

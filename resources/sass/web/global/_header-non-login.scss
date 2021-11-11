@@ -1,0 +1,62 @@
+.header-logo {
+  width: 180px;
+  height: 60px;
+}
+
+.navbar-custom {
+  padding: 25px 100px;
+  background-color: black;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  justify-content: space-between;
+}
+
+.header-non-login {
+  justify-content: space-between;
+  padding: unset;
+}
+
+.btn-daftar {
+  width: 144px;
+  height: 58px;
+  border-radius: 5px;
+  color: white;
+  line-height: 42.5px;
+  margin-left: 75px;
+}
+
+.subheader-heavy {
+  color: white;
+  line-height: 45px;
+}
+
+.btn-login-res{
+  display: none;
+  width: 90px;
+  height: 30px;
+  border-radius: 5px;
+  color: white;
+}
+
+.btn-login:hover{
+  color: white;
+}
+
+@media (max-width: 767px) {
+  .btn-login-res{
+      display: inline-block;
+  }
+
+  .btn-daftar, .btn-login{
+      display: none;
+  }
+
+  .navbar-custom{
+      padding: 10px 20px;
+  }
+
+  .header-logo {
+      width: 90px;
+      height: 30px;
+  }
+  
+}

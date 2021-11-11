@@ -1,0 +1,1 @@
+export const incommingEventSelector = state => state.event.incommingEvent;

@@ -1,0 +1,156 @@
+.container-membership{
+    padding: 0;
+}
+/*CARD DECK*/
+.card-deck-membership{
+    position: relative;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin: 0;
+}
+/*CARD*/
+.card{
+    background-color: #2f2f2f;
+    text-align: center;
+    width: 412px;
+    height: 600px;
+    padding: unset;
+
+    border-radius: 15px;
+}
+
+.card-header:first-child{
+    border-radius: 15px 15px 0px 0px;
+}
+
+.card-header{
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 33px;
+}
+
+.card-header h3{
+    background: -webkit-linear-gradient(#A1A1A1, #EDE8DA, #A1A1A1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+.card img{
+    margin-top: 45px;
+    margin-bottom: 40px;
+}
+
+.card-body{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.card-title{
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 50px;
+    margin-bottom: 20px;
+}
+
+.card-text{
+    text-align: left;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+    background: #C4C4C4;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.card .btn{
+    border-radius: 15px;
+    border: 2px solid #C89E35;
+    width: 80%;
+    color: #C89E35;
+
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 25px;
+    position: absolute;
+    left: 10%;
+    bottom: 30px;
+    background: unset;
+}
+
+.free .card-header{
+   background-color: #796555;
+}
+
+.self-employ .card-header{
+    background: rgba(196, 196, 196, 0.5);
+    mix-blend-mode: lighten;
+}
+
+.entr .card-header{
+    background: rgba(200, 158, 53, 0.5);
+    mix-blend-mode: lighten;
+}
+
+.free .card-title{
+    background: linear-gradient(180deg, #544A42 0%, #46372A 100%);
+    mix-blend-mode: lighten;
+}
+
+.self-employ .card-title{
+    background: linear-gradient(180deg, #797979 0%, #5D5D5D 100%);
+    mix-blend-mode: lighten;
+}
+
+.entr .card-title{
+    background: linear-gradient(180deg, #FECC5D 0%, #FE9E32 100%);
+    mix-blend-mode: lighten;
+}
+
+.free .btn{
+    opacity: 0.25;
+}
+
+.entr .btn{
+    background: linear-gradient(180deg, #FECC5D 0%, #FE9E32 100%);
+    color: white;
+}
+
+.entr .card-header p{
+    position: absolute;
+    display: inline-block;
+    top: -10px;
+    right: -10px;
+
+    background: linear-gradient(180deg, #FE3232 0%, #FE9E32 100%);
+    mix-blend-mode: normal;
+    border-radius: 5px;
+
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 20px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+@media (max-width: 767px) {
+    .card-deck-membership{
+        padding-left: unset;
+        padding-right: unset;
+    }
+
+    .card{
+        width: 100%;
+    }
+
+    .card-header{
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 24px;
+    }
+}
+
+

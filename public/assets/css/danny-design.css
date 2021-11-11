@@ -1,0 +1,183 @@
+
+
+.gambar-bg
+{
+    background-image: url('../img/kopi.jpg');
+}
+
+.gambar-bgUser
+{
+    background-image: url('../img/laptop.png');
+}
+
+.kotak-sosmed
+{
+    width: 50px;
+    height: 60px;
+    border: 1px solid black;
+}
+
+.kotak-sosmed img
+{
+    width: 100%;
+    height: 50px;
+}
+
+.kartu
+{
+    width: 300px;
+    display: inline-block;
+    margin: 15px;
+}
+
+.kartu a
+{
+    text-decoration: none;
+    color: black;
+}
+
+.padding70
+{
+    padding: 10px;
+}
+
+.navbar-danny
+{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background-color: black; 
+}
+
+.lapak-abu
+{
+    background-color: gainsboro;
+}
+
+.lapak-putih
+{
+    background-color: white;
+}
+
+.penahan-float
+{
+    overflow: hidden;
+}
+
+.float-kiri
+{
+    float: left;
+    display: block;
+}
+
+.float-kanan
+{
+    float: right;
+    display: block;
+}
+
+.lebar-50
+{
+    width: 50%;
+}
+
+.merahAlert
+{
+    border: 1px solid red;
+}
+
+
+.hijauAlert
+{
+    border: 1px solid green;
+}
+
+
+
+/*oploo======================*/
+#image-preview {
+    width: 300px;
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+    background-color: #ffffff;
+    color: #ecf0f1;
+  }
+
+
+  #image-preview input {
+    line-height: 200px;
+    font-size: 200px;
+    position: absolute;
+    opacity: 0;
+    z-index: 10;
+  }
+  #image-preview label {
+    position: absolute;
+    z-index: 5;
+    opacity: 0.8;
+    cursor: pointer;
+    background-color: #bdc3c7;
+    width: 100%;
+    height: 50px;
+    font-size: 20px;
+    line-height: 50px;
+    text-transform: uppercase;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    text-align: center;
+}
+/*oploo======================*/
+
+.box-cokelat
+{
+    border: 1px solid gainsboro;
+    border-radius: 5px;
+    padding: 10px;
+    display: block;
+    margin-top: 30px;
+    overflow:hidden;
+}
+
+.tabelForm td
+{
+    padding: 5px;
+}
+
+.flowan
+{
+    overflow: hidden;
+    margin-top: 25px;
+}
+
+.tempel-kiri
+{
+    float: left;
+}
+
+.tempel-kanan
+{
+    float: right;
+}
+
+.bg-hitam
+{
+    background-color: black;
+    border-radius: 0px 5px 5px 0px;
+    color: white;
+}
+
+.bg-hitam:hover
+{
+    color: black;
+    background-color: goldenrod;
+    transition: 1s;
+}
+
+
+footer
+{
+    
+}

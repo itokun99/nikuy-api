@@ -1,0 +1,1 @@
+export const membershipSelector = state => state.membership.list;

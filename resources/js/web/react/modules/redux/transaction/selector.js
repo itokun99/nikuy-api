@@ -1,0 +1,1 @@
+export const transactionSelector = state => state.transaction.list;

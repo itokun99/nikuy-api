@@ -1,0 +1,46 @@
+.big-banner {
+  &__image {
+    width: 100%;
+    height: 0;
+    padding-bottom: 27%;
+    background-color: #000;
+    background-position: center;
+  }
+
+  .slick-dots {
+
+    bottom: 1rem;
+
+    @include mq(max, 480px) {
+      bottom: .5rem;
+    }
+
+    li {
+      background-color: #c4c4c4;
+      border-radius: 20px;
+      transition: .3s;
+      width: 15px;
+      height: 15px;
+
+      @include mq(max, 480px) {
+        width: 8px;
+        height: 8px;
+      }
+
+      &.slick-active {
+        width: 40px;
+        background-color: $secondary;
+
+        @include mq(max, 480px) {
+          width: 16px;
+        }
+      }
+      
+      button {
+        &:before {
+          content: ""
+        }
+      }
+    }
+  }  
+}

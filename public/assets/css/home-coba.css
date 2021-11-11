@@ -1,0 +1,650 @@
+body{
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    color: #FFFFFF;
+}
+
+.container{
+    padding: 50px 100px;
+
+    display: block;
+    max-width: 1519px;
+    margin: auto;
+
+    background: rgba(0, 0, 0, 0.9);
+}
+
+/*NAVBAR*/
+.container-navbar{
+    position: relative;
+    padding: 25px 100px;
+    background-color: black;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.navbar{
+    padding: 0;
+}
+
+.logo img{
+    width: 180px;
+    height: 60px;
+}
+
+.nav-list .btn{
+    font-size: 18px;
+    text-align: center;
+}
+
+.nav-list .btn-login{
+    color: #fff;
+    font-weight: 600;
+}
+
+.nav-list .btn-daftar{
+    width: 145px;
+    height: 58px;
+    margin-left: 75px;
+    line-height: 42px;
+
+    font-size: 18px;
+    color: #fff;
+    background: #E73A63;
+    border-radius: 5px;
+}
+
+.nav-list .btn-daftar:hover{
+    background: #B2002B;
+
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/*BANNER*/
+.carousel-item img{
+    width: 100%;
+    height: auto;
+}
+
+.carousel-indicators li{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+}
+
+.carousel-indicators .active{
+    width: 30px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #C89E35;
+}
+
+/* GRID SYSTEM */
+/*Judul Status Kelas*/
+.title-status{
+    font-weight: bold;
+    font-size: 36px;
+
+    margin-bottom: 25px;
+}
+/*Container grid system*/ 
+.container-grid{
+    padding: 50px;
+    border-radius: 5px;
+
+   background: rgba(0, 0, 0, 0.45);
+}
+
+/*Judul kelas di dalam grid system*/
+.col-title{
+    padding-top: 20px;
+    padding-left: 0;
+    flex: 1 0 15%;
+    max-width: 15%;
+}
+
+.title-class{
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 30px;
+}
+
+.title-icon{
+    margin-bottom: 15px;
+}
+
+.title-link{
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 50px;
+    color: #FFFFFF;
+
+    position: absolute;
+    left: 0px;
+    bottom: 20px;
+}
+
+.title-link:hover{
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+/*Card*/
+.col-slick{
+    flex: 1 0 85%;
+    max-width: 85%;
+}
+
+.row-slick{
+    width: 1000px;
+    display: inline-block;
+
+    margin-left: 10px;
+}
+
+.card{
+    background-color: #2f2f2f;
+    border: unset;
+    height: 350px;
+    width: 300px;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+
+.card-title{
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 30px;
+}
+
+.card .btn{
+    margin-top: 50px;
+    width: 100%;
+
+    font-weight: bold;
+    font-size: 18px;
+
+    color: white;
+
+    background: #E73A63;
+    border-radius: 5px;
+}
+
+/*Belom responsive di HP (Ini hanya untuk grid system*/ 
+@media only screen and (max-width: 1400px){
+    .title-status{
+        font-size: 30px;
+    }
+
+    .row-slick{
+        width: 850px;
+    }
+
+    .card{
+        width: 250px;
+        height: auto;
+    }
+}
+
+@media only screen and (max-width: 1300px){
+    
+    .title-status{
+        font-size: 28px;
+    }
+
+    .row-slick{
+        width: 750px;
+    }
+
+    .card{
+        width: 200px;
+        height: auto;
+    }
+
+    .card .btn{
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 1200px){
+    .title-status{
+        font-size: 26px;
+    }
+
+    .title-icon{
+        width: 70px;
+        height: auto;
+    }
+
+    .title-class{
+        font-size: 20px;
+    }
+
+    .title-link{
+        font-size: 10px;
+    }
+    
+    .row-slick{
+        width: 650px;
+    }
+
+    .card{
+        width: 175px;
+        height: auto;
+    }
+
+    .card-title{
+        font-size: 14px;
+    }
+
+    .card .btn{
+        font-size: 12px;
+    }
+}
+
+/*Container Premium Color*/
+.container-grid-premium{
+    background: linear-gradient(180deg, #FECC5D 0%, #FDE3BD 53.12%, #F0A148 100%);
+}
+
+/*UPCOMING EVENT*/
+/*Ini link buat lihat semua*/
+.event-link{
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 50px;
+
+    position: relative;
+    top: 0px;
+    left: 900px;
+
+}
+
+/*Buat ngatur cardnya*/ 
+.event .card{
+    padding: 25px;
+    height: 550px;
+}
+
+.inner-card{
+    background-color:rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    height: 500px;
+}
+
+/*Ngatur Price tagnya*/ 
+.price-tag{
+    position: absolute;
+    top:180px;
+    right: 25px;
+    padding-left: 5px;
+
+    background: linear-gradient(180deg, #FECC5D 0%, #FE9E32 100%);
+    border-radius: 5px 0px 0px 5px;
+    color: black;
+}
+
+.price-tag p{
+    margin-bottom: 0px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.price-tag span{
+    text-decoration: line-through;
+    opacity: 0.25;
+    margin-left: 5px;
+}
+
+/*Card Body*/ 
+.card-body{
+    padding-bottom: 25px;
+}
+
+.event .card-body p{
+    margin-bottom: 0px;
+}
+
+.event .card-title{
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 30px;
+    margin-bottom: 0;
+}
+
+.card-body .hari{
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 30px;
+}
+
+.card-body .online{
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 30px;
+}
+
+.event .btn{
+    margin-top: 15px;
+}
+
+/*Speaker*/
+
+.speaker{
+    display: inline-flex;
+    margin-top: 15px;
+}
+
+.speaker-name{
+    padding-top: 15px;
+    padding-left: 10px;
+}
+
+.speaker-name .name{
+    display: inline-block;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 30px;
+    margin-bottom: 0;
+}
+
+.speaker-name .status{
+    display: inline-flex;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 30px;
+    margin-bottom: 0;
+}
+
+.speaker img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+/*Responsive untuk Card Deck*/
+@media only screen and (max-width: 1400px){
+    .price-tag{
+        top: 150px;
+    }
+
+    .event-link{
+        left: 800px
+    }
+
+    .event .card{
+        height: 520px;
+    }
+    
+    .inner-card{
+        height: 470px;
+    }
+
+}
+
+@media only screen and (max-width: 1300px){
+    .event .card{
+        height: 500px;
+    }
+    
+    .inner-card{
+        height: 450px;
+    }
+    
+    .event-link{
+        left: 700px
+    }
+
+    .price-tag p{
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 1200px){
+    .event-link{
+        left: 550px
+    }
+
+    .price-tag{
+        top: 120px;
+    }
+
+    .speaker-name{
+        padding-top: 0;
+    }
+    .speaker-name .name{
+        font-size: 10px;
+    }
+    
+    .speaker-name .status{
+        font-size: 10px;
+    }
+    
+    .speaker img{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
+
+    .price-tag p{
+        font-size: 12px;
+    }
+
+    .event .card{
+        height: 420px;
+    }
+    
+    .inner-card{
+        height: 370px;
+    }
+}
+
+/*Bottom Banner*/
+.container-bottom{
+    background: linear-gradient(180deg, #C89E35 0%, #FE9E32 100%), #C89E35;
+    text-align: center;
+}
+
+.banner-title{
+    font-weight: bold;
+    font-size: 2rem;
+    line-height: 2.5rem;
+}
+
+.container-bottom .btn{
+    width: 30%;
+    margin-top: 2rem;
+
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: white;
+
+    background: #E73A63;
+    border-radius: 5px;
+}
+
+/*Footer*/
+.container-footer{
+    text-align: center;
+}
+.navfooter li{
+    display: inline;
+    margin-right: 1rem;
+    margin-left: 1rem;
+
+    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 50px;
+}
+
+.navfooter ul{
+    padding: 0px;
+}
+
+.copy{
+    font-weight: normal;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+}
+
+/*Modal*/
+/*Modal Login*/
+.modal{
+    background: #000;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.close{
+    position: absolute;
+    top: 15px;
+    right: 30px;
+}
+
+.col-gambar{
+    padding-left: 2em;
+    padding-top: 8em;
+    padding-bottom: 8em;
+    flex: 1 0 30%;
+    max-width: 30%;
+    background-image: url('/Users/evaniajoycelin/Documents/Personal Project/Web TES/webtes - front/home/home_assets/Banner.png');
+}
+
+.col-login{
+    flex: 1 0 70%;
+    max-width: 70%;
+    padding-left: 0;
+}
+
+.container-form{
+    padding-top: 3em;
+    padding-bottom: 3em;
+    padding-right: 5em;
+    padding-left: 5em;
+    background: #FFFFFF;
+}
+
+.container-form h1{
+    font-weight: bold;
+    font-size: 1.5em;
+    line-height: 1.5em;
+
+    color: black;
+}
+
+.container-form span{
+    margin-left: 0.5em;
+    color: #F1B213;
+}
+
+.container-form p{
+    font-weight: normal;
+    font-size: 1em;
+    line-height: 1em;
+    color: black;
+    margin-bottom: 2em;
+}
+
+.container-form label{
+    display: block;
+
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1em;
+    line-height: 1em;
+    color:black;
+}
+
+.container-form .text-input{
+    display: block;
+    width: 100%;
+    height: 2em;
+    margin-bottom: 1.5em;
+    border: unset;
+    background: #EFEFEF;
+    border-radius: 0.4em;
+    padding-left: 0.4em;
+}
+
+.container-form .remember{
+    display: inline;
+    margin-right: 15em;
+}
+
+.container-form .btn{
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+
+    background: linear-gradient(180deg, #FECC5D 0%, #FE9E32 100%);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 0.4em;
+    color: #fff;
+}
+
+/*Modal Daftar*/
+.alamat-text{
+    margin-bottom: 1.2em;
+}
+
+.container-form select{
+    display: block;
+    width: 100%;
+    height: 3em;
+    border: none;
+    border-radius: 0.4em;
+    background: #EFEFEF;
+
+
+    margin-bottom: 1.2em;
+}
+
+.container-form .tc{
+    display: inline;
+}
+
+.tc span{
+    color: red;
+    margin-left: 0.5em;
+}
+
+.modal-daftar .container-form{
+    height: 30rem;
+    overflow-y: auto;
+}
+
+/*Under Maintenance*/
+.under-maintenance{
+    background: #FFFFFF;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.under-maintenance img{
+    height: 400px;
+    width: auto;
+    margin-right: 10px;
+}
+
+.under-maintenance h1{
+    color: black;
+    font-size: 36px;
+}
+
+@media only screen and (max-width: 1100px){
+    .under-maintenance{
+        display: flex;
+    }
+}

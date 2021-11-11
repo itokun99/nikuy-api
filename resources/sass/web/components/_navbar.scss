@@ -1,0 +1,14 @@
+.nav-bar {
+  background-color: #000000;
+
+  .dropdown-menu {
+    left: auto;
+    right: 0;
+  }
+
+  .dropdown-toggle {
+    &::after {
+      display: none;
+    }
+  }
+}

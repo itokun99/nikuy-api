@@ -1,0 +1,1 @@
+export const provinceSelector = state => state.province.province;

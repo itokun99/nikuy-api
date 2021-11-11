@@ -1,0 +1,33 @@
+.profile-sidebar {
+  position: fixed;
+  height: 100vh;
+  width: 30%;
+  max-width: 100%;
+  left: 0;
+  padding-right: 3rem;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  overflow-y: auto;
+
+  &__nav-link {
+    color: $white;
+    display: block;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-left: 10rem;
+    padding-right: 5rem;
+    margin-bottom: 1rem;
+    border-radius:  0 8px 8px 0;
+    font-weight: bold;
+    font-size: 18px;
+    text-decoration: none !important;
+
+    &--active {
+      background-color: $secondary;
+    }
+
+    &:hover {
+      color: $white;
+    }
+  }
+}

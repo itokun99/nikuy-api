@@ -1,0 +1,51 @@
+.card-profile-photo {
+  background-color: $card-dark-bg;
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+
+  &__holder {
+    text-align: center;
+  }
+  &__image {
+    width: 200px;
+    height: 200px;
+    background-color: $placeholder-bg3;
+    display: inline-block;
+    border-radius: 200px;
+    border: $placeholder-bg3 solid 10px;
+    position: relative;
+    margin-bottom: 2rem;
+    background-position: center;
+  }
+
+  &__image-action {
+    position: absolute;
+    background: $placeholder-bg2;
+    padding: 8px;
+    border-radius: 100px;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+  }
+
+  &__image-input {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+
+    input {
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+  }
+}

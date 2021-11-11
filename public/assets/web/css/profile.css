@@ -1,0 +1,701 @@
+.container-profile {
+  padding: 0px;
+}
+
+/* SIDEBAR */
+
+.sidebar {
+  margin: 0;
+  padding-top: 100px;
+  width: 25%;
+  height: 1010px;
+  background-color: #333333;
+  display: inline-block;
+}
+
+.sidebar a {
+  display: block;
+  color: #FFFFFF;
+  padding: 25px;
+  padding-left: 30%;
+  width: 80%;
+  text-decoration: none;
+  text-align: left;
+  border-radius: 0 5px 5px 0;
+  margin-bottom: 10px;
+}
+
+.sidebar a.active {
+  background-color: #C89E35;
+  color: white;
+}
+
+.sidebar a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+
+/*CONTENT*/
+
+.container-content {
+  display: inline-block;
+  vertical-align: top;
+  width: 74%;
+  height: 1008px;
+  overflow: auto;
+}
+
+/* 1. NAVBAR */
+
+.akun-navbar {
+  width: 100%;
+  vertical-align: top;
+  padding: 25px 150px;
+  text-align: center;
+}
+
+.akun-navbar .active {
+  padding-bottom: 5px;
+  border-bottom: solid #FECC5D 3px;
+  color: #FECC5D;
+}
+
+.akun-navbar a {
+  display: inline-block;
+  color: #FFFFFF;
+}
+
+.akun-navbar a:hover {
+  text-decoration: none;
+}
+
+.akun-navbar a:hover:not(.active) {
+  color: #fff;
+  text-decoration: none;
+}
+
+/*2. AKUN PROFILE*/
+
+.akun-profil {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+.content-row-1 {
+  display: inline-block;
+  vertical-align: top;
+}
+
+/*Row Pertama*/
+
+/*1. Buat ngatur kotak akun data*/
+
+.akun-data {
+  width: 300px;
+  height: 400px;
+  margin-bottom: 45px;
+  padding-top: 30px;
+  padding-bottom: 50px;
+  padding-left: 45px;
+  padding-right: 45px;
+  border-radius: 5px;
+  background-color: #2F2F2F;
+  text-align: center;
+}
+
+.akun-data img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: solid 10px rgba(0, 0, 0, 0.35);
+  margin-bottom: 20px;
+}
+
+.akun-data p {
+  font-weight: normal;
+  font-size: 14px;
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
+  color: #CF3737;
+}
+
+.akun-data h4 {
+  font-weight: bold;
+  line-height: 20px;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+/*2. Buat ngatur kotak membership*/
+
+.status-membership {
+  width: 300px;
+  height: 400px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 45px;
+  padding-right: 45px;
+  border-radius: 5px;
+  background-color: #2F2F2F;
+  text-align: center;
+}
+
+.status-membership h6 {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 19px;
+}
+
+.status-membership h3 {
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 33px;
+}
+
+.status-membership img {
+  display: block;
+  margin-top: 40px;
+  margin-bottom: 60px;
+  height: auto;
+  width: 100%;
+}
+
+.status-membership .btn {
+  display: block;
+  border: solid 2px #C89E35;
+  border-radius: 5px;
+  color: white;
+}
+
+/*Row Ke dua*/
+
+/*Buat ngatur data yg udh di submit*/
+
+.content-row-2 {
+  display: inline-block;
+  width: 50%;
+  vertical-align: top;
+  padding: 20px 50px;
+  margin-left: 40px;
+  text-align: left;
+  background-color: #2F2F2F;
+  border-radius: 5px;
+}
+
+.content-row-2 h2 {
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 50px;
+  margin-bottom: 30px;
+}
+
+.container-data-profile {
+  margin-bottom: 27px;
+  margin-top: 10px;
+  height: 50px;
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 5px;
+  padding-left: 15px;
+  padding-top: 10px;
+  color: white;
+}
+
+.container-data-profile.alamat {
+  height: 80px;
+}
+
+.content-row-2 h3 {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 19px;
+}
+
+.content-row-2 .btn-non-edit {
+  width: 100%;
+  height: 48px;
+  margin-top: 10px;
+  color: #fff;
+  background: linear-gradient(180deg, #FECC5D 0%, #FE9E32 100%);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.content-row-2 .btn-edit {
+  width: 100%;
+  height: 48px;
+  margin-top: 40px;
+  color: #fff;
+  background: linear-gradient(180deg, #FECC5D 0%, #FE9E32 100%);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/*Buat ngatur yg edit*/
+
+.content-row-2 label {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 19px;
+  display: block;
+  margin-bottom: 0;
+}
+
+.content-row-2 .input-data-profile {
+  margin-bottom: 27px;
+  margin-top: 10px;
+  height: 50px;
+  width: 100%;
+  border-radius: 5px;
+  padding-left: 15px;
+  color: black;
+}
+
+.input-data-profile.alamat {
+  padding: 15px;
+  height: 150px;
+  width: 100%;
+}
+
+/* INI UNTUK AKUN BISNIS*/
+
+/*1. LIST BISNIS*/
+
+.akun-bisnis-list {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+.card {
+  background-color: #2F2F2F;
+  display: inline-block;
+  width: 80%;
+  text-align: left;
+  padding: 2% 5%;
+  margin-bottom: 50px;
+}
+
+.img-card {
+  display: inline-block;
+  vertical-align: top;
+  width: 35%;
+  height: 235px;
+  border-radius: 50%;
+  border: solid 10px rgba(0, 0, 0, 0.35);
+  margin-right: 10px;
+}
+
+.card-body {
+  margin-left: 10px;
+  display: inline-block;
+  width: 61%;
+}
+
+.btn-card {
+  border-color: #C89E35;
+  color: #C89E35;
+  border-radius: 5px;
+  width: 140px;
+  height: 29px;
+  line-height: 15px;
+}
+
+.btn-card:hover {
+  color: #FFFFFF;
+}
+
+.card-title {
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 33px;
+}
+
+.card-text {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 25px;
+}
+
+.btn-tambah {
+  display: block;
+  width: 520px;
+  height: 50px;
+  background: linear-gradient(180deg, #FECC5D 0%, #FE9E32 100%);
+  border-radius: 5px;
+  color: #FFFFFF;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 35px;
+}
+
+.bisnis-list-title {
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 50px;
+  text-align: left;
+  margin-bottom: 50px;
+  display: inline-block;
+  width: 80%;
+}
+
+/*2. AKUN BISNIS*/
+
+.akun-bisnis {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+.akun-bisnis .content-row-2 {
+  width: 50%;
+}
+
+.akun-bisnis .akun-data {
+  height: 1381px;
+}
+
+.akun-bisnis h4 {
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 50px;
+  margin-bottom: 80px;
+}
+
+.akun-bisnis h5 {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 25px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.akun-bisnis .desc-bisnis {
+  margin-bottom: 50px;
+  background-color: rgba(0, 0, 0, 0.35);
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.akun-bisnis .akun-data .container-data-profile {
+  padding: 5px;
+  height: 40px;
+}
+
+.akun-bisnis .content-row-2 .btn {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 40px;
+  height: 55px;
+  background: linear-gradient(180deg, #FECC5D 0%, #FE9E32 100%);
+  color: #FFFFFF;
+  display: block;
+  width: 100%;
+}
+
+.back-to-list {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
+  display: block;
+  text-align: center;
+}
+
+.akun-bisnis .content-row-1 label {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 25px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.akun-bisnis .content-row-1 .input-data-profile {
+  margin-bottom: 27px;
+  margin-top: 10px;
+  height: 40px;
+  width: 100%;
+  border-radius: 5px;
+  padding-left: 5px;
+  color: black;
+}
+
+.akun-bisnis .content-row-1 textarea.input-data-profile {
+  height: 250px;
+  padding: 10px;
+}
+
+/*BISNIS LIST*/
+
+.akun-bisnis-list .btn-card {
+  border-color: #C89E35;
+  background-color: unset;
+  position: unset;
+  width: 140px;
+}
+
+/* RESPONSIVE */
+
+.upload-foto-bisnis {
+  align-items: center;
+  padding-left: 25px;
+}
+
+#upload-foto-bisnis {
+  display: inline-block;
+  width: 100%;
+  margin-top: 15px;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.akun-bisnis-list .card {
+  height: unset;
+}
+
+.container-akun-bisnis-detail-res {
+  display: none;
+}
+
+.container-akun-bisnis-detail-res .card {
+  width: 100%;
+  padding: unset;
+}
+
+.container-akun-bisnis-detail-res .card-img-top {
+  height: 60%;
+  width: 100%;
+}
+
+.container-akun-bisnis-detail-res h3 {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.container-akun-bisnis-detail-res label {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 5px;
+}
+
+.container-akun-bisnis-detail-res input,
+.container-akun-bisnis-detail-res select {
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 20px;
+  margin-bottom: 5px;
+  width: 100%;
+  height: 30px;
+}
+
+.container-akun-bisnis-detail-res .container-data-profile.alamat,
+.container-akun-bisnis-detail-res .container-data-profile.desc-bisnis {
+  height: 100px;
+}
+
+.container-akun-bisnis-detail-res .container-data-profile.industri {
+  height: 60px;
+}
+
+.container-akun-bisnis-detail-res .container-data-profile {
+  height: 40px;
+  padding-left: 10px;
+  line-height: normal;
+}
+
+.container-akun-bisnis-detail-res .btn-edit {
+  border-radius: 5px;
+  width: 100%;
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.container-akun-bisnis-detail-res .btn-simpan {
+  border-radius: 5px;
+  width: 100%;
+  color: white;
+  margin-top: 20px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.input-data-profile.desc-bisnis {
+  height: 100px;
+}
+
+@media (max-width: 767px) {
+  .sidebar {
+    display: none;
+  }
+
+  .container-content {
+    width: 100%;
+    padding: 20px 35px;
+  }
+
+  .akun-navbar {
+    padding: 0;
+    padding-bottom: 25px;
+  }
+
+  .akun-navbar a {
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 16px;
+    display: inline-block;
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+
+  .akun-navbar .active {
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 16px;
+    display: inline-block;
+  }
+
+  .content-row-2 {
+    width: 100%;
+    margin-left: unset;
+    padding: 20px 25px;
+  }
+
+  .akun-data,
+  .status-membership {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .content-row-2 h3,
+  .content-row-2 label {
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+  }
+
+  .content-row-2 h2 {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 14px;
+    margin-bottom: 15px;
+  }
+
+  .content-row-2 .btn-non-edit,
+  .content-row-2 .btn-edit {
+    height: 24px;
+    font-size: 12px;
+    line-height: 8px;
+    margin-top: unset;
+  }
+
+  .container-data-profile,
+  .input-data-profile {
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+  }
+
+  .content-row-2 .input-data-profile {
+    height: 25px;
+    padding-left: 8px;
+  }
+
+  .input-data-profile.alamat {
+    padding: 5px;
+    height: 100px;
+    width: 100%;
+  }
+
+  .content-row-1 {
+    width: 100%;
+  }
+
+  .akun-bisnis-list .card {
+    width: 100%;
+    padding: 0px;
+    text-align: center;
+    border-radius: 5px;
+  }
+
+  .bisnis-list-title {
+    width: 100%;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 14px;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+
+  .akun-bisnis-list .img-card {
+    width: 100%;
+    height: 80%;
+    border: unset;
+    border-radius: unset;
+  }
+
+  .card-title {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 14px;
+  }
+
+  .card-text {
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    margin-bottom: 12px;
+  }
+
+  .card-body {
+    text-align: left;
+    width: 100%;
+    margin: unset;
+  }
+
+  .akun-bisnis-list .btn-card {
+    width: 80%;
+    font-size: 12px;
+    margin-right: 10px;
+  }
+
+  .btn-tambah {
+    width: 100%;
+    height: 24px;
+    font-size: 12px;
+    line-height: 8px;
+  }
+
+  .container-akun-bisnis-detail-non-res {
+    display: none;
+  }
+
+  .container-akun-bisnis-detail-res {
+    display: block;
+  }
+
+  .container-bisnis-edit {
+    padding: unset;
+  }
+}
+
+

@@ -1,0 +1,15 @@
+.card-class {
+  height: 280px;
+  background-color: $card-class-bg;
+
+  @include mq(max, 425px) {
+    height: 250px;
+  }
+
+  &__image {
+    background-color: $placeholder-bg;
+    background-position: center;
+    height: 0;
+    padding-bottom: 56%;
+  }
+}

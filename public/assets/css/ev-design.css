@@ -1,0 +1,559 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    color: #FFFFFF;
+}
+
+.container {
+    position: relative;
+    top: 110px;
+    padding: 50px 100px;
+    display: block;
+    max-width: 1519px;
+    margin: auto;
+    background: rgba(0, 0, 0, 0.9);
+}
+
+/*NAVBAR*/
+.container-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 25px 100px;
+    background-color: black;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.navbar {
+    padding: 0;
+}
+
+.logo img {
+    width: 180px;
+    height: 60px;
+}
+
+.nav-list .btn {
+    font-size: 18px;
+    text-align: center;
+    color: white;
+}
+
+.nav-list .btn-login {
+    color: #fff;
+    font-weight: 600;
+}
+
+.nav-list .btn-daftar {
+    width: 145px;
+    height: 58px;
+    margin-left: 75px;
+    line-height: 42px;
+    font-size: 18px;
+    color: #fff;
+    background: #E73A63;
+    border-radius: 5px;
+}
+
+.nav-list .btn-daftar:hover {
+    background: #B2002B;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.nav-list .profile-pict img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.nav-link {
+    display: inline;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 60px;
+    left: 1000px;
+    background-color: #2f2f2f;
+}
+
+.dropdown-item {
+    color: white;
+    background-color: #2f2f2f;
+}
+
+.dropdown-item:hover {
+    color: white;
+    background-color: #2f2f2f;
+    text-decoration: underline;
+}
+
+@media only screen and (max-width: 1400px) {
+    .dropdown-menu {
+        left: 850px;
+    }
+}
+
+@media only screen and (max-width: 1300px) {
+    .dropdown-menu {
+        left: 720px;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .dropdown-menu {
+        left: 650px;
+    }
+}
+
+
+/*BANNER*/
+
+.carousel-item img {
+    width: 100%;
+    height: 365px;
+}
+
+.carousel-indicators li {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+}
+
+.carousel-indicators .active {
+    width: 30px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #C89E35;
+}
+
+
+/* GRID SYSTEM */
+
+
+/*Judul Status Kelas*/
+
+.title-status {
+    font-weight: bold;
+    font-size: 36px;
+    margin-bottom: 25px;
+}
+
+
+/*Container grid system*/
+
+.container-grid {
+    padding: 50px;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.45);
+}
+
+
+/*Judul kelas di dalam grid system*/
+
+.col-title {
+    padding-top: 20px;
+    padding-left: 0;
+    flex: 1 0 15%;
+    max-width: 15%;
+}
+
+.title-class {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 30px;
+}
+
+.title-icon {
+    margin-bottom: 50px;
+}
+
+.title-link {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 50px;
+    color: #FFFFFF;
+    position: absolute;
+    left: 0px;
+    bottom: 20px;
+}
+
+.title-link:hover {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+
+/*Card*/
+
+.col-slick {
+    flex: 1 0 85%;
+    max-width: 85%;
+}
+
+.row-slick {
+    width: 1000px;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.card {
+    background-color: #2f2f2f;
+    border: unset;
+    height: 330px;
+    width: 300px;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+
+.card-title {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 30px;
+}
+
+.card .btn {
+    position: absolute;
+    bottom: 20px;
+    width: 85%;
+    font-weight: bold;
+    font-size: 18px;
+    color: white;
+    background: #E73A63;
+    border-radius: 5px;
+}
+
+
+/*Belom responsive di HP (Ini hanya untuk grid system*/
+
+@media only screen and (max-width: 1400px) {
+    .container-grid {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+    .title-status {
+        font-size: 30px;
+    }
+    .row-slick {
+        width: 850px;
+    }
+    .card {
+        width: 250px;
+        height: 310px;
+    }
+    .card-body {
+        padding: 15px;
+    }
+}
+
+@media only screen and (max-width: 1300px) {
+    .container-grid {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+    .title-status {
+        font-size: 28px;
+    }
+    .row-slick {
+        width: 750px;
+    }
+    .card {
+        width: 230px;
+        height: 300px;
+    }
+    .card .btn {
+        font-size: 14px;
+        width: 83%;
+    }
+    .card-body {
+        padding: 15px;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .title-status {
+        font-size: 26px;
+    }
+    .title-icon {
+        width: 70px;
+        height: auto;
+    }
+    .title-class {
+        font-size: 20px;
+    }
+    .title-link {
+        font-size: 10px;
+    }
+    .row-slick {
+        width: 650px;
+    }
+    .card {
+        width: 175px;
+        height: 250px;
+    }
+    .card-title {
+        font-size: 14px;
+    }
+    .card .btn {
+        font-size: 12px;
+    }
+}
+
+
+/*Container Premium Color*/
+
+.container-grid-premium {
+    background: linear-gradient(180deg, #FECC5D 0%, #FDE3BD 53.12%, #F0A148 100%);
+}
+
+
+/*UPCOMING EVENT*/
+
+
+/*Ini link buat lihat semua*/
+
+.event-link {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 50px;
+    position: relative;
+    top: 0px;
+    left: 900px;
+}
+
+
+/*Buat ngatur cardnya*/
+
+.event .card {
+    padding: 40px;
+    height: 500px;
+    margin-right: 25px;
+    margin-left: 25px;
+}
+
+.inner-card {
+    background-color: rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    height: 500px;
+}
+
+
+/*Ngatur Ukuran gambar*/
+
+.event .inner-card img {
+    width: 100%;
+    height: 200px;
+}
+
+
+/*Ngatur Price tagnya*/
+
+.price-tag {
+    position: absolute;
+    top: 190px;
+    right: 40px;
+    padding: 5px;
+    background: linear-gradient(180deg, #FECC5D 0%, #FE9E32 100%);
+    border-radius: 5px 0px 0px 5px;
+    color: black;
+}
+
+.price-tag p {
+    margin-bottom: 0px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.price-tag span {
+    text-decoration: line-through;
+    opacity: 0.25;
+    margin-left: 5px;
+}
+
+
+/*Card Body*/
+
+.card-body {
+    padding-bottom: 25px;
+}
+
+.event .card-body p {
+    margin-bottom: 0px;
+}
+
+.event .card-title {
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 30px;
+    margin-bottom: 0;
+}
+
+.card-body .hari {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 30px;
+}
+
+.card-body .online {
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 30px;
+}
+
+.event .btn {
+    position: absolute;
+    width: 70%;
+    bottom: 70px;
+}
+
+
+/*Speaker*/
+
+.speaker {
+    display: inline-flex;
+    margin-top: 15px;
+}
+
+.speaker-name {
+    padding-top: 15px;
+    padding-left: 10px;
+}
+
+.speaker-name .name {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 30px;
+    margin-bottom: 0;
+}
+
+.speaker-name .status {
+    display: inline-flex;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 30px;
+    margin-bottom: 0;
+}
+
+.speaker img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+
+/*Responsive untuk Card Deck*/
+
+@media only screen and (max-width: 1400px) {
+    .price-tag {
+        top: 180px;
+    }
+    .event-link {
+        left: 800px
+    }
+    .event .card {
+        height: 520px;
+    }
+    .event .btn {
+        width: 65%;
+    }
+    .inner-card {
+        height: 470px;
+    }
+}
+
+@media only screen and (max-width: 1300px) {
+    .event .card {
+        height: 450px;
+        padding: 30px;
+    }
+    .event .btn {
+        bottom: 50px;
+        width: 65%;
+    }
+    .inner-card {
+        height: 450px;
+    }
+    .event-link {
+        left: 700px
+    }
+    .price-tag p {
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .event-link {
+        left: 550px
+    }
+    .event .btn {
+        bottom: 40px;
+        width: 65%;
+    }
+    .event .card {
+        height: 350px;
+        padding: 25px;
+    }
+    .event .card-title {
+        font-size: 14px;
+    }
+    .event .hari {
+        font-size: 12px;
+    }
+    .price-tag {
+        top: 120px;
+        right: 25px;
+    }
+    .event .inner-card img {
+        width: 100%;
+        height: 150px;
+    }
+    .speaker-name {
+        padding-top: 0;
+    }
+    .speaker-name .name {
+        font-size: 10px;
+    }
+    .speaker-name .status {
+        font-size: 10px;
+    }
+    .speaker img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
+    .price-tag p {
+        font-size: 10px;
+    }
+    .inner-card {
+        height: 370px;
+    }
+}
+
+
+/*Bottom Banner*/
+
+.container-bottom {
+    background: linear-gradient(180deg, #C89E35 0%, #FE9E32 100%), #C89E35;
+    text-align: center;
+}
+
+.banner-title {
+    font-weight: bold;
+    font-size: 2rem;
+    line-height: 2.5rem;
+}
+
+.container-bottom .btn {
+    width: 30%;
+    margin-top: 2rem;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: white;
+    background: #E73A63;
+    border-radius: 5px;
+}
+
