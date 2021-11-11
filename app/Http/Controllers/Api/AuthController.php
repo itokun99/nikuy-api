@@ -5,14 +5,11 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
-use App\Models\Akses;
-use App\Models\PaketMember;
-use App\Models\UserPaket;
+use App\Models\UserAccess;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Resources\LoginResource;
-use App\Helper\Helper;
 
 
 class AuthController extends Controller
@@ -36,27 +33,27 @@ class AuthController extends Controller
             if (!Auth::attempt([
                 'email' => $request->email,
                 'password' => $request->password,
-                'status' => 'Aktif',
-                'hak_akses' => 'Member'
+                'status' => 'active',
+                'role' => 'user'
             ])) {
                 return $this->responseError('Login Failed', 400, [
                     'message' => ["Wrong Email / Password"],
                 ]);
             }
 
-            $user = User::with(['akses'])
+            $user = User::with(['access'])
                 ->where('email', $request->email)
-                ->whereIn('status', ['Aktif'])
-                ->whereIn('hak_akses', ['Member'])
+                ->whereIn('status', ['active'])
+                ->whereIn('role', ['user'])
                 ->first();
 
-            if (!$user->akses) {
-                $akses = Akses::create([
-                    'id_user' => $user->id_user,
-                    'token' => $this->generateToken($user->id_user, $user->email)
+            if (!$user->access) {
+                $access = UserAccess::create([
+                    'user_id' => $user->id,
+                    'token' => $this->generateToken($user->id, $user->email)
                 ]);
 
-                if (!$akses) {
+                if (!$access) {
                     return response()->json([
                         'status' => 0,
                         'message' => 'Login Failed',
@@ -65,7 +62,7 @@ class AuthController extends Controller
                         ]
                     ], 400);
                 }
-                $user->akses = $akses;
+                $user->access = $access;
             }
 
             return new LoginResource($user);
@@ -81,7 +78,7 @@ class AuthController extends Controller
     {
         try {
             $validator = Validator::make($request->all(), [
-                'email' => 'required|email|unique:user,email,NULL,id_user,deleted_at,NULL',
+                'email' => 'required|email|unique:user,email,NULL,id,deleted_at,NULL',
                 'name' => 'required',
                 'address' => 'required',
                 'dob' => 'required',
@@ -98,37 +95,19 @@ class AuthController extends Controller
                 );
             }
 
-            $paket = PaketMember::where('default', 1)
-                ->whereIn('kondisi', ['POSTING'])
-                ->first();
-
             $id = $this->generateId();
-
             $user = new User;
-            $user->id_user = $id;
-            $user->nama_user = $request->name;
-            $user->alamat = $request->address;
-            $user->tgl_lahir = $request->dob;
-            $user->jenis_kelamin = $request->gender;
-            $user->no_hp = $request->phone;
+            $user->id = $id;
+            $user->name = $request->name;
+            $user->address = $request->address;
+            $user->dob = $request->dob;
+            $user->gender = $request->gender;
+            $user->phone = $request->phone;
             $user->email = $request->email;
             $user->password = Hash::make($request->password);
-            $user->hak_akses = "Member";
-            $user->status = 'Aktif';
-            $user->setuju = "ya";
-            $user->id_paket = NULL;
+            $user->role = "user";
+            $user->status = 'active';
             $user->save();
-
-            $sub = Helper::getSubscribeAndExpired($paket->masa_berlaku);
-
-            if ($paket) {
-                UserPaket::create([
-                    'id_user' => $id,
-                    'id_paket' => $paket->id_paket,
-                    'subscribe_at' => $sub->subscribe_at,
-                    'expired_at' => $sub->expired_at,
-                ]);
-            }
 
             return $this->responseSuccess('Registration successfull', 201);
         } catch (\Exception $e) {
@@ -140,7 +119,7 @@ class AuthController extends Controller
     public function logout(Request $request)
     {
         $token = $request->bearerToken();
-        $akses = Akses::where('token', $token);
+        $akses = UserAccess::where('token', $token);
 
         if ($akses) {
             $akses->delete();

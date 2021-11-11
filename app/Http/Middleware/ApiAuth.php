@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use App\Models\User;
-use App\Models\Akses;
+use App\Models\UserAccess;
 
 class ApiAuth
 {
@@ -31,26 +31,26 @@ class ApiAuth
             return $this->unauthorized();
         }
 
-        $akses = Akses::where('token', $token)->first();
+        $access = UserAccess::where('token', $token)->first();
 
-        if (!$akses) {
+        if (!$access) {
             return $this->unauthorized();
         }
 
-        if (!$akses->user) {
+        if (!$access->user) {
             return $this->unauthorized();
         }
 
-        if ($akses->user->hak_akses != 'Member') {
+        if ($access->user->role != 'user') {
             return $this->unauthorized();
         }
 
-        if ($akses->user->status != 'Aktif') {
+        if ($access->user->status != 'active') {
             return $this->unauthorized();
         }
 
 
-        $user = User::find($akses->user->id_user);
+        $user = User::find($access->user->id);
         $request->user = $user;
 
         return $next($request);

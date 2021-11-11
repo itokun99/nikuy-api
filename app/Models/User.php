@@ -15,57 +15,29 @@ class User extends Authenticatable
     protected $primaryKey = 'id_user';
 
     protected $fillable = [
-        "id_user",
-        "nama_user",
-        "alamat",
-        "provinsi",
-        "tgl_lahir",
-        "jenis_kelamin",
-        "no_hp",
+        "id",
+        "name",
+        "username",
+        "address",
+        "province",
+        "dob",
+        "gender",
+        "phone",
         "email",
         "password",
-        "foto",
-        "hak_akses",
+        "photo",
+        "role",
         "status",
-        "setuju",
-        "id_paket",
-        "title",
-        "summary"
     ];
-
-    public function paket()
-    {
-        return $this->hasOne("App\Models\PaketMember", "id_paket", "id_paket");
-    }
-
-    public function paket_membership()
-    {
-        return $this->hasOne("App\Models\UserPaket", "id_user", "id_user");
-    }
 
 
     public function province()
     {
-        return $this->hasOne("App\Models\Provinsi", 'id_provinsi', 'provinsi');
+        return $this->hasOne("App\Models\Province", 'id', 'province');
     }
 
-    public function bisnis()
+    public function access()
     {
-        return $this->hasMany("App\Models\UserPreneur", "id_user", "id_user");
-    }
-
-    public function event()
-    {
-        return $this->hasMany('App\Model\EventDaftar', 'id_user', 'id_user')->withTrashed();
-    }
-
-    public function akses()
-    {
-        return $this->hasOne("App\Models\Akses", "id_user", "id_user");
-    }
-
-    public function course_progress()
-    {
-        return $this->hasOne("App\Models\UserCourseProgress", "id_user", "id_user");
+        return $this->hasOne("App\Models\UserAccess", "user_id", "id");
     }
 }

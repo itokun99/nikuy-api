@@ -1,1 +1,0 @@
-export const classesSelector = state => state.classes.list;

@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Akses;
+use App\Models\UserAccess;
 use App\Models\User;
 use App\Http\Resources\ProfileResource;
 use App\Helper\Helper;
@@ -20,18 +20,17 @@ class ProfileController extends Controller
     {
         try {
             $token = $request->bearerToken();
-            $akses = Akses::where('token', $token)->first();
+            $access = UserAccess::where('token', $token)->first();
 
-            if (!$akses) {
+            if (!$access) {
                 return $this->responseError('Not Found', 404, [
                     "message" => ["Access not found"]
                 ]);
             }
 
-            $user = User::with(['province', 'paket_membership.paket'])
-                ->find($akses->id_user);
+            $user = User::with(['province'])->find($access->user_id);
 
-            if (!$akses) {
+            if (!$access) {
                 return $this->responseError('Not Found', 404, [
                     "message" => ["User not found, maybe unregistered or deleted in database"]
                 ]);
@@ -67,7 +66,7 @@ class ProfileController extends Controller
             if ($file) {
                 $photo = $this->uploadFile($file, Helper::getAssetPath());
                 $prevFile = $user->photo;
-                $user->foto = $photo;
+                $user->photo = $photo;
                 $user->save();
             }
 
@@ -86,9 +85,9 @@ class ProfileController extends Controller
     {
         try {
             $user = $request->user;
-            if ($user->foto) {
-                $this->deleteFile($user->foto, Helper::getAssetPath());
-                $user->foto = NULL;
+            if ($user->photo) {
+                $this->deleteFile($user->photo, Helper::getAssetPath());
+                $user->photo = NULL;
                 $user->save();
             }
             return $this->responseSuccess();
@@ -113,21 +112,19 @@ class ProfileController extends Controller
             }
 
             if ($user->email != $request->email) {
-                $existing = User::where('email', $request->email)->whereIn('status', ['Aktif', 'Deactive'])->first();
+                $existing = User::where('email', $request->email)->whereIn('status', ['active', 'nonactive'])->first();
                 if ($existing) {
                     return $this->responseError("Failed, Email already registered", 400);
                 }
                 $user->email = $request->email;
             }
 
-            if ($request->name) $user->nama_user = $request->name;
-            if ($request->address) $user->alamat = $request->address;
-            if ($request->dob) $user->tgl_lahir = $request->dob;
-            if ($request->gender) $user->jenis_kelamin = $request->gender;
-            if ($request->province) $user->provinsi = $request->province;
-            if ($request->phone) $user->no_hp = $request->phone;
-            if ($request->title) $user->title = $request->title;
-            if ($request->summary) $user->summary = $request->summary;
+            if ($request->name) $user->name = $request->name;
+            if ($request->address) $user->address = $request->address;
+            if ($request->dob) $user->dob = $request->dob;
+            if ($request->gender) $user->gender = $request->gender;
+            if ($request->province) $user->province = $request->province;
+            if ($request->phone) $user->phone = $request->phone;
             $user->save();
             return $this->responseSuccess();
         } catch (\Exception $e) {

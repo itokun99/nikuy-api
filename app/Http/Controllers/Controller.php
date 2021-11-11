@@ -8,12 +8,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Auth;
-use App\Models\RiwayatAdmin;
-use App\Models\Riwayat;
-use App\Models\UserPaket;
-use App\Models\PaketMember;
-use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class Controller extends BaseController
 {
@@ -21,9 +16,11 @@ class Controller extends BaseController
 
     public function generateId()
     {
-        $timenow = \Carbon\Carbon::now();
-        $id = date('mdyhi', strtotime($timenow->toDateTimeString()));
-        return $id;
+        // $timenow = \Carbon\Carbon::now();
+        // $id = date('mdyhi', strtotime($timenow->toDateTimeString()));
+        // return $id;
+
+        return Str::uuid();
     }
 
     public function generateToken($userId, $userEmail)
@@ -54,35 +51,6 @@ class Controller extends BaseController
         $photo = $timenow->format('Ymdhis') . "." . $file->extension();
         $file->move($this->getPublicPath() . $path . '/', $photo);
         return $photo;
-    }
-
-    public function logAdmin($deskripsi, $detail = NULL)
-    {
-        $user = Auth::user();
-        $riwayat = new RiwayatAdmin;
-        $riwayat->id_user = $user->id_user;
-        if ($deskripsi) {
-            $riwayat->deskripsi = $deskripsi;
-        }
-
-        if ($detail) {
-            $riwayat->detail = $detail;
-        }
-        $riwayat->save();
-    }
-
-    public function logMember($id, $deskripsi, $detail)
-    {
-        $riwayat = new Riwayat();
-        $riwayat->id_user = $id;
-        if ($deskripsi) {
-            $riwayat->deskripsi = $deskripsi;
-        }
-
-        if ($detail) {
-            $riwayat->detail = $detail;
-        }
-        $riwayat->save();
     }
 
     public function responseError($message = 'failed', $code = 400, $errors = NULL)
@@ -116,23 +84,5 @@ class Controller extends BaseController
         return $this->responseError("Server Error", 500, [
             'message' => [$errors]
         ]);
-    }
-
-    public function validateMembership(Request $request)
-    {
-        $user = $request->user;
-        $user_membership = UserPaket::where('id_user', $user->id_user)->first();
-
-        if (!$user_membership) {
-            return FALSE;
-        }
-
-        $membership = PaketMember::find($user_membership->id_paket);
-
-        if (!$membership) {
-            return FALSE;
-        }
-
-        return TRUE;
     }
 }

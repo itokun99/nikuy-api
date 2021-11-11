@@ -19,7 +19,7 @@ class LoginResource extends JsonResource
             'status' => 1,
             'message' => 'Login successful',
             'data' => [
-                'token' => $this->akses->token
+                'token' => $this->access->token
             ]
         ];
     }

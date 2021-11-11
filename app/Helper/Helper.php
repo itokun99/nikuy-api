@@ -87,39 +87,16 @@ class Helper
     return env('APP_URL', 'http://localhost:8000') . '/assets/img/nofoto.png';
   }
 
-  static function getFile($type = NULL, $image = NULL)
+  static function getFile($image = NULL)
   {
     if (!$image) {
-      return Helper::getDefaultImage();
+      return NULL;
     }
-    return env('APP_URL', 'http://localhost:8000') . '/' . Helper::getAssetPath($type) . '/' . $image;
+    return env('APP_URL', 'http://localhost:8000') . '/' . Helper::getAssetPath() . '/' . $image;
   }
 
-  static function getAssetPath($type = NULL)
+  static function getAssetPath()
   {
-    switch ($type) {
-      case 'kelas':
-        return 'assets/foto/kelas';
-      case 'kursus':
-        return 'assets/foto/kursus';
-      case 'paket':
-        return 'assets/foto/paket';
-      case 'event':
-        return 'assets/foto/event';
-      case 'sosmed':
-        return 'assets/foto/sosmed';
-      case 'bisnis':
-        return 'assets/foto/bisnis';
-      case 'transaksi':
-        return 'assets/foto/struk';
-      case 'banner':
-        return 'assets/foto/slider';
-      case 'author':
-        return 'assets/foto/author';
-      case 'bank':
-        return 'assets/foto/img';
-      default:
-        return 'uploads/photo';
-    }
+    return 'assets/img';
   }
 }

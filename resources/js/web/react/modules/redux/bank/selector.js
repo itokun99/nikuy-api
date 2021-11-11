@@ -1,1 +1,0 @@
-export const bankSelector = state => state.bank.list;

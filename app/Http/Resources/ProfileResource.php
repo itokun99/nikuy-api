@@ -21,18 +21,15 @@ class ProfileResource extends JsonResource
             'status' => 1,
             'message' => 'User Founded',
             'data' => [
-                'id' => $this->id_user,
-                'name' => $this->nama_user,
+                'id' => $this->id,
+                'name' => $this->name,
                 'email' => $this->email,
-                'phone' => $this->no_hp,
-                'dob' => $this->tgl_lahir,
-                'gender' => $this->jenis_kelamin,
-                'address' => $this->alamat,
-                'province' => new ProvinceResource($this->province),
-                'title' => $this->title,
-                'photo' => Helper::getFile('profile', $this->foto),
-                'summary' => $this->summary,
-                'membership' => new ProfileMembershipResource($this->paket_membership)
+                'phone' => $this->phone,
+                'dob' => $this->dob,
+                'gender' => $this->gender,
+                'address' => $this->address,
+                'province' => $this->province,
+                'photo' => Helper::getFile($this->foto),
             ]
         ];
     }
