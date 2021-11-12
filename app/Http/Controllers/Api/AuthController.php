@@ -30,22 +30,22 @@ class AuthController extends Controller
                 );
             }
 
-            if (!Auth::attempt([
-                'email' => $request->email,
-                'password' => $request->password,
-                'status' => 'active',
-                'role' => 'user'
-            ])) {
-                return $this->responseError('Login Failed', 400, [
-                    'message' => ["Wrong Email / Password"],
-                ]);
-            }
-
             $user = User::with(['access'])
                 ->where('email', $request->email)
-                ->whereIn('status', ['active'])
                 ->whereIn('role', ['user'])
                 ->first();
+
+            if (!$user) {
+                return $this->responseError('Maaf, Email tidak terdaftar', 404);
+            }
+
+            if ($user->status != 'active') {
+                return $this->responseError('Maaf, Akun dinonaktifkan karena suatu alasan, silahkan hubungi tim support pada halaman kontak', 400);
+            }
+
+            if (!Hash::check($request->password, $user->password)) {
+                return $this->responseError('Maaf, kata sandi salah', 400);
+            }
 
             if (!$user->access) {
                 $access = UserAccess::create([
@@ -56,10 +56,7 @@ class AuthController extends Controller
                 if (!$access) {
                     return response()->json([
                         'status' => 0,
-                        'message' => 'Login Failed',
-                        'errors' => [
-                            'message' => "Fail generate token",
-                        ]
+                        'message' => 'Maaf, terjadi kesalahan sistem',
                     ], 400);
                 }
                 $user->access = $access;
@@ -68,9 +65,7 @@ class AuthController extends Controller
             return new LoginResource($user);
         } catch (\Exception $e) {
 
-            return $this->responseError('Server Error', 500, [
-                'message' => [$e->getMessage()],
-            ]);
+            return $this->serverError($e->getMessage());
         }
     }
 
@@ -78,18 +73,14 @@ class AuthController extends Controller
     {
         try {
             $validator = Validator::make($request->all(), [
-                'email' => 'required|email|unique:user,email,NULL,id,deleted_at,NULL',
+                'email' => 'required|email|unique:users,email,NULL,id,deleted_at,NULL',
                 'name' => 'required',
-                'address' => 'required',
-                'dob' => 'required',
-                'gender' => 'required',
-                'phone' => 'required|max:15',
                 'password' => 'required|min:8|confirmed',
             ]);
 
             if ($validator->fails()) {
                 return $this->responseError(
-                    'Registration failed',
+                    'Maaf, pendaftaran akun gagal',
                     400,
                     $validator->errors()
                 );
@@ -99,27 +90,25 @@ class AuthController extends Controller
             $user = new User;
             $user->id = $id;
             $user->name = $request->name;
-            $user->address = $request->address;
-            $user->dob = $request->dob;
-            $user->gender = $request->gender;
-            $user->phone = $request->phone;
+            $user->username = $this->generateUsername();
             $user->email = $request->email;
             $user->password = Hash::make($request->password);
             $user->role = "user";
             $user->status = 'active';
             $user->save();
 
-            return $this->responseSuccess('Registration successfull', 201);
+            return $this->responseSuccess('Hore!, pendaftaran berhasil', 201);
         } catch (\Exception $e) {
-            return $this->responseError("Server Error", 500, [
-                'message' => [$e->getMessage()]
-            ]);
+            return $this->serverError($e->getMessage());
         }
     }
     public function logout(Request $request)
     {
         $token = $request->bearerToken();
-        $akses = UserAccess::where('token', $token);
+        $akses = UserAccess::where([
+            "user_id" => $request->user->id,
+            'token', $token
+        ])->first();
 
         if ($akses) {
             $akses->delete();

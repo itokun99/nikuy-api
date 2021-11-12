@@ -12,7 +12,7 @@ class ApiAuth
     {
         return response()->json([
             'status' => 0,
-            'message' => 'Unauthorized'
+            'message' => 'Maaf, Akses di tolak'
         ], 401);
     }
     /**
@@ -31,7 +31,9 @@ class ApiAuth
             return $this->unauthorized();
         }
 
-        $access = UserAccess::where('token', $token)->first();
+        $access = UserAccess::with(['user'])
+            ->where('token', $token)
+            ->first();
 
         if (!$access) {
             return $this->unauthorized();

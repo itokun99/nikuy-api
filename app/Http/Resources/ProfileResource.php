@@ -29,7 +29,7 @@ class ProfileResource extends JsonResource
                 'gender' => $this->gender,
                 'address' => $this->address,
                 'province' => $this->province,
-                'photo' => Helper::getFile($this->foto),
+                'photo' => Helper::getFile($this->photo),
             ]
         ];
     }

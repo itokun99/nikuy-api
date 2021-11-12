@@ -11,12 +11,18 @@ class UserAccess extends Model
     //
     use SoftDeletes;
 
+    protected $keyType = 'string';
+
     protected $table = "user_access";
     protected $primaryKey = 'id';
 
     protected $fillable = [
         'user_id',
         'token'
+    ];
+
+    protected $casts = [
+        'user_id' => 'string'
     ];
 
 

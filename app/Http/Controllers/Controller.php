@@ -23,10 +23,22 @@ class Controller extends BaseController
         return Str::uuid();
     }
 
+    public function generateUsername()
+    {
+        $timenow = \Carbon\Carbon::now();
+        $id = date('mdyhi', strtotime($timenow->toDateTimeString()));
+        return `user$id`;
+    }
+
     public function generateToken($userId, $userEmail)
     {
-        $randomHas = Hash::make("$userId|$userEmail");
-        return $randomHas;
+        $randomHas = Hash::make("$userId|$userEmail", [
+            "rounds" => 12,
+        ]);
+        $randomHas = Hash::make("$randomHas|$userId|$randomHas", [
+            "rounds" => 10,
+        ]);
+        return "$randomHas" . "$$userId$" . "$randomHas";
     }
 
     public function getPublicPath()
@@ -81,7 +93,7 @@ class Controller extends BaseController
 
     public function serverError($errors = NULL)
     {
-        return $this->responseError("Server Error", 500, [
+        return $this->responseError("Maaf, terjadi kesalahan sistem", 500, [
             'message' => [$errors]
         ]);
     }

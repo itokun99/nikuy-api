@@ -11,8 +11,8 @@ class User extends Authenticatable
 {
     use SoftDeletes, Notifiable;
 
-    protected $table = "user";
-    protected $primaryKey = 'id_user';
+    protected $table = "users";
+    protected $primaryKey = 'id';
 
     protected $fillable = [
         "id",
@@ -30,6 +30,12 @@ class User extends Authenticatable
         "status",
     ];
 
+    public $incrementing = false;
+
+    protected $casts = [
+        'id' => 'string'
+    ];
+    protected $keyType = 'string';
 
     public function province()
     {
