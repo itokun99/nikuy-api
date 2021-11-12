@@ -15,6 +15,22 @@ class ApiAuth
             'message' => 'Maaf, Akses di tolak'
         ], 401);
     }
+
+    public function expired()
+    {
+        return response()->json([
+            'status' => 0,
+            'message' => 'Maaf, Sesi berakhir. Silahkan masuk kembali'
+        ], 440);
+    }
+
+    public function nonactiveUser()
+    {
+        return response()->json([
+            'status' => 0,
+            'message' => 'Maaf, akun kamu sudah tidak aktif'
+        ], 401);
+    }
     /**
      * Handle an incoming request.
      *
@@ -36,7 +52,7 @@ class ApiAuth
             ->first();
 
         if (!$access) {
-            return $this->unauthorized();
+            return $this->expired();
         }
 
         if (!$access->user) {

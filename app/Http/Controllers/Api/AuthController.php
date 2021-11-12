@@ -107,7 +107,7 @@ class AuthController extends Controller
         $token = $request->bearerToken();
         $akses = UserAccess::where([
             "user_id" => $request->user->id,
-            'token', $token
+            'token' => $token
         ])->first();
 
         if ($akses) {
