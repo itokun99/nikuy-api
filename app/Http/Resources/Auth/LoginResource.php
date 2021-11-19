@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Resources;
+namespace App\Http\Resources\Auth;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -16,11 +16,7 @@ class LoginResource extends JsonResource
     {
 
         return [
-            'status' => 1,
-            'message' => 'Login successful',
-            'data' => [
-                'token' => $this->access->token
-            ]
+            'token' => $this->access->token
         ];
     }
 }

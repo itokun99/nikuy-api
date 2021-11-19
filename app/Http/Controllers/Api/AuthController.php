@@ -7,9 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\UserAccess;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use App\Http\Resources\LoginResource;
+use App\Http\Resources\Auth\LoginResource;
 
 
 class AuthController extends Controller
@@ -62,7 +61,11 @@ class AuthController extends Controller
                 $user->access = $access;
             }
 
-            return new LoginResource($user);
+            return $this->responseSuccess(
+                "Hore! berhasil masuk",
+                200,
+                new LoginResource($user)
+            );
         } catch (\Exception $e) {
 
             return $this->serverError($e->getMessage());

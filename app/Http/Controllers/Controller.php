@@ -16,11 +16,18 @@ class Controller extends BaseController
 
     public function generateId()
     {
-        // $timenow = \Carbon\Carbon::now();
-        // $id = date('mdyhi', strtotime($timenow->toDateTimeString()));
-        // return $id;
-
         return Str::uuid();
+    }
+
+    public function generateTimeId()
+    {
+        $timenow = \Carbon\Carbon::now();
+        return $timenow->format('Ymdhis');
+    }
+
+    public function generateSlug($title)
+    {
+        return Str::slug($title, '-');
     }
 
     public function generateUsername()
@@ -49,7 +56,7 @@ class Controller extends BaseController
         return base_path() . '/public/';
     }
 
-    public function deleteFile($fileName, $path = 'uploads/photo')
+    public function deleteFile($fileName, $path = 'assets/img')
     {
         $fileName = $this->getPublicPath() . $path . '/' . $fileName;
         if (File::exists($fileName)) {
@@ -57,10 +64,10 @@ class Controller extends BaseController
         }
     }
 
-    public function uploadFile($file, $path = 'uploads/photo')
+    public function uploadFile($file, $id = "", $prefix = "", $path = 'assets/img')
     {
         $timenow = \Carbon\Carbon::now();
-        $photo = $timenow->format('Ymdhis') . "." . $file->extension();
+        $photo = $prefix . "-" . $id . "-" . $timenow->format('Ymdhis') . "." . $file->extension();
         $file->move($this->getPublicPath() . $path . '/', $photo);
         return $photo;
     }

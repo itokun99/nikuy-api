@@ -18,8 +18,6 @@ class User extends Authenticatable
         "id",
         "name",
         "username",
-        "address",
-        "province",
         "dob",
         "gender",
         "phone",
@@ -35,15 +33,16 @@ class User extends Authenticatable
     protected $casts = [
         'id' => 'string'
     ];
-    protected $keyType = 'string';
 
-    public function province()
-    {
-        return $this->hasOne("App\Models\Province", 'id', 'province');
-    }
+    protected $keyType = 'string';
 
     public function access()
     {
         return $this->hasOne("App\Models\UserAccess", "user_id", "id");
+    }
+
+    public function location()
+    {
+        return $this->hasOne("App\Models\UserLocation", "user_id", "id");
     }
 }

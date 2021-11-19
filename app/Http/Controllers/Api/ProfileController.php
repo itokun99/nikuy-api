@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\UserAccess;
 use App\Models\User;
-use App\Http\Resources\ProfileResource;
+use App\Http\Resources\Profile\ProfileResource;
 use App\Helper\Helper;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -23,20 +23,22 @@ class ProfileController extends Controller
             $access = UserAccess::where('token', $token)->first();
 
             if (!$access) {
-                return $this->responseError('Not Found', 404, [
-                    "message" => ["Access not found"]
-                ]);
+                return $this->responseError('Maaf, sesi habis. Silahkan masuk kembali', 400);
             }
 
-            $user = User::with(['province'])->find($access->user_id);
+            $user = User::with(['location' => function ($q) {
+                $q->with(['province', 'city', 'district', 'subdistrict']);
+            }])->find($access->user_id);
 
-            if (!$access) {
-                return $this->responseError('Not Found', 404, [
-                    "message" => ["User not found, maybe unregistered or deleted in database"]
-                ]);
+            if (!$user) {
+                return $this->responseError('Akun tidak ditemukan', 404);
             }
 
-            return new ProfileResource($user);
+            return $this->responseSuccess(
+                "Sukses",
+                200,
+                new ProfileResource($user)
+            );
         } catch (\Exception $e) {
             $this->serverError($e->getMessage());
         }
@@ -120,10 +122,8 @@ class ProfileController extends Controller
             }
 
             if ($request->name) $user->name = $request->name;
-            if ($request->address) $user->address = $request->address;
             if ($request->dob) $user->dob = $request->dob;
             if ($request->gender) $user->gender = $request->gender;
-            if ($request->province) $user->province = $request->province;
             if ($request->phone) $user->phone = $request->phone;
             $user->save();
             return $this->responseSuccess();
