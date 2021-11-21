@@ -683,7 +683,7 @@ class MyInvitationController extends Controller
                             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
                         ];
 
-                        $qrImageFile = request()->file('qr_' . $data->id);
+                        $qrImageFile = request()->file('ewallet_' . $data->id);
                         if ($qrImageFile) {
                             $ewallet['qr'] = $this->uploadFile($qrImageFile, $data->id, 'ewallet');
                         }
