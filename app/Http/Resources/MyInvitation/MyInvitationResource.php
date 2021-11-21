@@ -6,6 +6,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
 use App\Http\Resources\MyInvitation\ImageResource;
 use App\Http\Resources\MyInvitation\GalleryResource;
 use App\Http\Resources\MyInvitation\VideoResource;
+use App\Http\Resources\MyInvitation\AudioResource;
 use App\Http\Resources\MyInvitation\EwalletResource;
 use App\Http\Resources\MyInvitation\ScheduleResource;
 use App\Http\Resources\MyInvitation\LocationResource;
@@ -36,7 +37,9 @@ class MyInvitationResource extends JsonResource
             "schedules" => ScheduleResource::collection($this->schedules),
             "galleries" => GalleryResource::collection($this->galleries),
             "videos" => VideoResource::collection($this->videos),
+            "audios" => AudioResource::collection($this->audios),
             "ewallets" => EwalletResource::collection($this->ewallets),
+            "rekening" => RekeningResource::collection($this->rekening),
             "rekening" => RekeningResource::collection($this->rekening),
         ];
     }

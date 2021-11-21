@@ -25,6 +25,11 @@ Route::prefix('v1')->group(function () {
     Route::get('/location/districts', 'Api\LocationController@getDistricts');
     Route::get('/location/subdistricts', 'Api\LocationController@getSubdistricts');
 
+    Route::middleware('api.public')->group(function () {
+        Route::get('/invitations/{id}', 'Api\InvitationController@getDetail');
+        Route::get('/invitations', 'Api\InvitationController@get');
+    });
+
     Route::middleware('api.auth')->group(function () {
 
         Route::get('/logout', 'Api\AuthController@logout');

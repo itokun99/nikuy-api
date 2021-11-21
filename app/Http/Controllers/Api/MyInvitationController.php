@@ -13,6 +13,7 @@ use App\Models\InvitationVideo;
 use App\Models\InvitationRekening;
 use App\Models\InvitationEwallet;
 use App\Models\InvitationLocation;
+use App\Models\InvitationAudio;
 use App\Models\InvitationImage;
 use App\Http\Resources\MyInvitation\MyInvitationCollection;
 use App\Http\Resources\MyInvitation\MyInvitationResource;
@@ -32,6 +33,7 @@ class MyInvitationController extends Controller
             'videos',
             'rekening',
             'ewallets',
+            'audios',
             'location' => function ($q) {
                 $q->with(['province', 'city', 'district', 'subdistrict']);
             }
@@ -52,6 +54,7 @@ class MyInvitationController extends Controller
             'videos',
             'rekening',
             'ewallets',
+            'audios',
             'location' => function ($q) {
                 $q->with(['province', 'city', 'district', 'subdistrict']);
             }
@@ -132,7 +135,9 @@ class MyInvitationController extends Controller
             $location->subdistrict_id = $request->subdistrict;
             $location->address = $request->address;
             $location->postal_code = $request->postal_code;
+            $location->googlemap = $request->googlemap;
             $location->save();
+
 
             // create invitation image
             $image = new InvitationImage;
@@ -158,12 +163,14 @@ class MyInvitationController extends Controller
             $reqVideos = json_decode($request->videos);
             $reqRekening = json_decode($request->rekening);
             $reqEwallets = json_decode($request->ewallets);
+            $reqAudios = json_decode($request->audios);
             $couples = [];
             $schedules = [];
             $galleries = [];
             $videos = [];
             $ewallets = [];
             $rekenings = [];
+            $audios = [];
 
 
             // create couple data
@@ -241,6 +248,21 @@ class MyInvitationController extends Controller
                 }
             }
 
+            // create audio data
+            if ($reqAudios && count($reqAudios) > 0) {
+                foreach ($reqAudios as $data) {
+                    $audio = [
+                        "id" => $data->id,
+                        "url" => $data->url,
+                        'invitation' => $invitation->id,
+                        'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                        'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+                    ];
+
+                    array_push($audios, $audio);
+                }
+            }
+
             // create rekening data
             if ($reqRekening && count($reqRekening) > 0) {
                 foreach ($reqRekening as $data) {
@@ -286,6 +308,8 @@ class MyInvitationController extends Controller
             if (count($galleries) > 0) InvitationGallery::insert($galleries);
             if (count($rekenings) > 0) InvitationRekening::insert($rekenings);
             if (count($videos) > 0) InvitationVideo::insert($videos);
+            if (count($audios) > 0) InvitationAudio::insert($audios);
+
 
             return $this->responseSuccess("Berhasil membuat undangan", 201);
         } catch (\Exception $e) {
@@ -322,6 +346,55 @@ class MyInvitationController extends Controller
                 }
             }
             $invitation->save();
+
+            // create invitation location
+            $location = InvitationLocation::where('invitation_id', $invitation->id)->first();
+
+            if ($location) {
+                if ($request->province && $location->province_id != $request->province) {
+                    $location->province_id = $request->province;
+                }
+
+                if ($request->city && $location->city_id != $request->city) {
+                    $location->city_id = $request->city;
+                }
+
+                if ($request->district && $location->district_id != $request->district) {
+                    $location->district_id = $request->district;
+                }
+
+                if ($request->subdistrict && $location->subdistrict_id != $request->subdistrict) {
+                    $location->subdistrict_id = $request->subdistrict;
+                }
+
+                if ($request->address && $location->address != $request->address) {
+                    $location->address = $request->address;
+                }
+
+                if ($request->postal_code && $location->postal_code != $request->postal_code) {
+                    $location->postal_code = $request->postal_code;
+                }
+
+                if ($request->googlemap && $location->googlemap != $request->googlemap) {
+                    $location->googlemap = $request->googlemap;
+                }
+                $location->save();
+            } else {
+                // create invitation location
+                $location = new InvitationLocation;
+                $location->id = $this->generateId();
+                $location->invitation_id = $invitation->id;
+                $location->province_id = $request->province;
+                $location->city_id = $request->city;
+                $location->district_id = $request->district;
+                $location->subdistrict_id = $request->subdistrict;
+                $location->address = $request->address;
+                $location->postal_code = $request->postal_code;
+                $location->googlemap = $request->googlemap;
+                $location->save();
+            }
+
+
 
             // update image
             $image = InvitationImage::where("invitation", $invitation->id)->first();
@@ -362,10 +435,12 @@ class MyInvitationController extends Controller
             $reqVideos = json_decode($request->videos);
             $reqRekening = json_decode($request->rekening);
             $reqEwallets = json_decode($request->ewallets);
+            $reqAudios = json_decode($request->audios);
             $couples = [];
             $schedules = [];
             $galleries = [];
             $videos = [];
+            $audios = [];
             $ewallets = [];
             $rekenings = [];
 
@@ -513,6 +588,31 @@ class MyInvitationController extends Controller
                 }
             }
 
+            // create audio data
+            if ($reqAudios && count($reqAudios) > 0) {
+                foreach ($reqAudios as $data) {
+                    $existing_audio = InvitationAudio::find($data->id);
+
+                    if ($existing_audio) {
+                        if ($existing_audio->url != $data->url) {
+                            $existing_audio->url = $data->url;
+                        }
+
+                        $existing_audio->save();
+                    } else {
+                        $audio = [
+                            "id" => $data->id,
+                            "url" => $data->url,
+                            'invitation' => $invitation->id,
+                            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+                        ];
+
+                        array_push($audios, $audio);
+                    }
+                }
+            }
+
             // create rekening data
             if ($reqRekening && count($reqRekening) > 0) {
                 foreach ($reqRekening as $data) {
@@ -599,6 +699,7 @@ class MyInvitationController extends Controller
             if (count($galleries) > 0) InvitationGallery::insert($galleries);
             if (count($rekenings) > 0) InvitationRekening::insert($rekenings);
             if (count($videos) > 0) InvitationVideo::insert($videos);
+            if (count($audios) > 0) InvitationAudio::insert($audios);
 
             return $this->responseSuccess("Berhasil memperbarui undangan", 200);
         } catch (\Exception $e) {

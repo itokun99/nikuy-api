@@ -73,4 +73,9 @@ class Invitation extends Model
     {
         return $this->hasOne("App\Models\InvitationImage", "invitation", "id");
     }
+
+    public function audios()
+    {
+        return $this->hasMany("App\Models\InvitationAudio", "invitation", "id");
+    }
 }
