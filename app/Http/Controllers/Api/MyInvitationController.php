@@ -292,7 +292,7 @@ class MyInvitationController extends Controller
                         'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
                     ];
 
-                    $qrImageFile = request()->file('qr_' . $data->id);
+                    $qrImageFile = request()->file('ewallet_' . $data->id);
                     if ($qrImageFile) {
                         $ewallet['qr'] = $this->uploadFile($qrImageFile, $data->id, 'ewallet');
                     }
@@ -541,8 +541,8 @@ class MyInvitationController extends Controller
                             $prevGalleryImage = $existing_gallery->url;
                             $existing_gallery->url = $this->uploadFile($galleryImageFile, $data->id, 'gallery');
                             $this->deleteFile($prevGalleryImage);
-                            $existing_gallery->save();
                         }
+                        $existing_gallery->save();
                     } else {
                         $galleryImageFile = request()->file('gallery_' . $data->id);
                         if ($galleryImageFile) {
@@ -666,13 +666,13 @@ class MyInvitationController extends Controller
                             $existing_ewallet->akun = $data->akun;
                         }
 
-                        $qrImageFile = request()->file('qr_' . $existing_ewallet->id);
+                        $qrImageFile = request()->file('ewallet_' . $existing_ewallet->id);
                         if ($qrImageFile) {
                             $prevQrImage = $existing_ewallet->qr;
                             $existing_ewallet->qr = $this->uploadFile($qrImageFile, $data->id, 'ewallet');
                             $this->deleteFile($prevQrImage);
-                            $existing_ewallet->save();
                         }
+                        $existing_ewallet->save();
                     } else {
                         $ewallet = [
                             'id' => $data->id,
